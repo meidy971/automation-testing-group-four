@@ -2,12 +2,8 @@ package pageobjects.automationtesting;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class basketPage {
+public class BasketPage {
     WebDriver driver;
 
     By productPriceSelector = By.cssSelector(".product-subtotal .woocommerce-Price-amount ");
@@ -15,7 +11,7 @@ public class basketPage {
     By basketSubtotalSelector = By.cssSelector(".cart-subtotal .woocommerce-Price-amount");
     By proceedToCheckoutButton = By.cssSelector("a[href*='checkout']");
 
-    public basketPage(WebDriver driver) {
+    public BasketPage(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -7,13 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ordersPage {
+public class OrdersPage {
     WebDriver driver;
     int timeoutSearch = 5;
     By myAccountButton = By.cssSelector(".order-actions .button");
     By ordersButton = By.cssSelector(".woocommerce-MyAccount-navigation-link--orders");
 
-    public ordersPage(WebDriver driver){
+    public OrdersPage(WebDriver driver){
         this.driver = driver;
     }
 

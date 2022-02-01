@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class mainSteps {
+public class MainSteps {
 
     @Given("Je me connecte sur le site Amazon")
     public void je_me_connecte_sur_le_site_amazon(){

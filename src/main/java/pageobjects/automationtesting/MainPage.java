@@ -1,20 +1,18 @@
 package pageobjects.automationtesting;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class mainPage {
+public class MainPage {
 
     WebDriver driver;
     int timeoutSearch = 5;
     By myAccountButton = By.id("menu-item-50");
 
-    public mainPage(WebDriver driver){
+    public MainPage(WebDriver driver){
         this.driver = driver;
     }
 

@@ -1,14 +1,13 @@
 package pageobjects.automationtesting;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class myAccountPage {
+public class MyAccountPage {
 
     WebDriver driver;
     int timeoutSearch =15;
@@ -21,7 +20,7 @@ public class myAccountPage {
     By noWhereSelector = By.id("woocommerce-register-nonce");
     By lostPasswordSelector = By.cssSelector("a[href*='lost-password']");
 
-    public myAccountPage(WebDriver driver){
+    public MyAccountPage(WebDriver driver){
         this.driver = driver;
     }
 

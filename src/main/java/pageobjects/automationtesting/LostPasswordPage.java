@@ -7,14 +7,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class lostPasswordPage {
+public class LostPasswordPage {
 
     WebDriver driver;
     int timeoutSearch = 5;
     By lostPasswordEmailSelector = By.id("user_login");
     By resetPasswordButton = By.cssSelector("input[value='Reset Password']");
 
-    public lostPasswordPage(WebDriver driver){
+    public LostPasswordPage(WebDriver driver){
         this.driver = driver;
     }
 

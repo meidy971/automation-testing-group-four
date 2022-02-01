@@ -15,5 +15,5 @@ import org.junit.runner.RunWith;
                 "html:build/cucumber-report/cucumber.html",
                 "junit:build/cucumber-report/cucumber.xml"}
 )
-public class runner {
+public class Runner {
 }

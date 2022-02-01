@@ -7,14 +7,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class productPage {
+public class ProductPage {
 
     WebDriver driver;
     int timeoutSearch = 5;
     By addToBasketButtonSelector = By.cssSelector(".single_add_to_cart_button");
     By itemsSelector = By.cssSelector(".cartcontents");
 
-    public productPage(WebDriver driver){
+    public ProductPage(WebDriver driver){
         this.driver = driver;
     }
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class shopPage {
+public class ShopPage {
 
     WebDriver driver;
     int timeoutSearch = 5;
@@ -17,7 +17,7 @@ public class shopPage {
     By selectProductWithPriceSelector = By.cssSelector("");
 
 
-    public shopPage(WebDriver driver){
+    public ShopPage(WebDriver driver){
         this.driver = driver;
     }
 
