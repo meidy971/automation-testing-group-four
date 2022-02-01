@@ -28,7 +28,61 @@ public class shopPage {
         wait.until(ExpectedConditions.elementToBeClickable(shopButton));
     }
 
-    public void selectProduct(){
+    public void openProductPageWithPhoto(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void openProductPageWithTitle(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void openProductPageWithPrice(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void addToBasketFromShopPage(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void getFinalProductPriceFromShopPage(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void getTitleFromShopPage(){
+
+        // Trouver et intéragir avec l'élément
+        driver.findElement(selectProductSelector).click();
+
+        // Attendre que l'action soit fini
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+    }
+
+    public void viewBasket(){
 
         // Trouver et intéragir avec l'élément
         driver.findElement(selectProductSelector).click();
