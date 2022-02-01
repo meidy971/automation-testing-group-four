@@ -2,6 +2,7 @@ package pageobjects.automationtesting;
 
 import org.openqa.selenium.By;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,7 +11,7 @@ import java.time.Duration;
 
 public class CheckoutPage {
 
-    int timeoutSearch = 5;
+    int timeoutSearch = 15;
     WebDriver driver;
 
 
@@ -23,19 +24,21 @@ public class CheckoutPage {
     By lastNameSelector = By.id("billing_last_name");
     By emailSelector = By.id("billing_email");
     By phoneNumberSelector = By.id("billing_phone");
-    By countrySelector = By.id("select2-drop-mask");
+    By countrySelector = By.id("s2id_billing_country");
     By adressSelector = By.id("billing_address_1");
     By postCodeSelector = By.id("billing_postcode");
     By citySelector = By.id("billing_city");
+    By countySelector = By.id("billing_state");
     By totalPriceSelector = new By.ByCssSelector("tfoot tr + tr +tr >td > strong");
 
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
     }
+
     public  void setFirstNameFromCheckoutPage (String firstName){
         //
-
+        //driver.findElement(firstNameSelector).clear();
         driver.findElement(firstNameSelector).sendKeys(firstName);
         //
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -44,6 +47,7 @@ public class CheckoutPage {
 
     public  void setLastNameFromCheckoutPage (String lastName){
         //
+        //driver.findElement(lastNameSelector).clear();
         driver.findElement(lastNameSelector).sendKeys(lastName);
 
         //
@@ -52,7 +56,7 @@ public class CheckoutPage {
     }
     public  void setEmailFromCheckoutPage (String email){
         //
-        //
+        //driver.findElement(emailSelector).clear();
         driver.findElement(emailSelector).sendKeys(email);
 
         //
@@ -61,6 +65,7 @@ public class CheckoutPage {
     }
     public  void setPhoneNumberFromCheckoutPage (String phoneNumber){
         //
+        //driver.findElement(phoneNumberSelector).clear();
         driver.findElement(phoneNumberSelector).sendKeys(phoneNumber);
 
         //
@@ -69,7 +74,7 @@ public class CheckoutPage {
     }
     public  void setCountryFromCheckoutPage (String country){
         //
-        //
+        //driver.findElement(countrySelector).clear();
         driver.findElement(countrySelector).sendKeys(country);
 
         //
@@ -78,6 +83,7 @@ public class CheckoutPage {
     }
     public  void setAdressFromCheckoutPage (String adress){
         //
+        //driver.findElement(adressSelector).clear();
         driver.findElement(adressSelector).sendKeys(adress);
 
         //
@@ -86,7 +92,7 @@ public class CheckoutPage {
     }
     public  void setPostcodeFromCheckoutPage (String postCode){
         //
-        //
+        //driver.findElement(postCodeSelector).clear();
         driver.findElement(postCodeSelector).sendKeys(postCode);
 
         //
@@ -95,12 +101,24 @@ public class CheckoutPage {
     }
     public  void setCityFromCheckoutPage (String city){
         //
+        //driver.findElement(citySelector).clear();
         driver.findElement(citySelector).sendKeys(city);
 
         //
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.visibilityOfElementLocated(citySelector));
     }
+
+    public  void setCountyFromCheckoutPage (String city){
+        //
+        //driver.findElement(countySelector).clear();
+        driver.findElement(countySelector).sendKeys(city);
+
+        //
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(countySelector));
+    }
+
     /*public  void getTitleFromCheckoutPage (){
         //
         driver.findElement().click();

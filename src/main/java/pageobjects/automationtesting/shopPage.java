@@ -12,7 +12,10 @@ public class shopPage {
     WebDriver driver;
     int timeoutSearch = 5;
     By shopButton = By.id("menu-item-40");
-    By selectProductSelector = By.cssSelector(".woocommerce-LoopProduct-link .attachment-shop_catalog");
+    By selectProductWithPhotoSelector = By.cssSelector(".woocommerce-LoopProduct-link .attachment-shop_catalog");
+    By selectProductWithTitleSelector = By.cssSelector(".woocommerce-LoopProduct-link .attachment-shop_catalog");
+    By selectProductWithPriceSelector = By.cssSelector("");
+
 
     public shopPage(WebDriver driver){
         this.driver = driver;
@@ -31,7 +34,7 @@ public class shopPage {
     public void openProductPageWithPhoto(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        driver.findElement(selectProductWithPhotoSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -40,7 +43,7 @@ public class shopPage {
     public void openProductPageWithTitle(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -49,7 +52,7 @@ public class shopPage {
     public void openProductPageWithPrice(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -58,7 +61,7 @@ public class shopPage {
     public void addToBasketFromShopPage(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -67,7 +70,7 @@ public class shopPage {
     public void getFinalProductPriceFromShopPage(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -76,7 +79,7 @@ public class shopPage {
     public void getTitleFromShopPage(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -85,7 +88,7 @@ public class shopPage {
     public void viewBasket(){
 
         // Trouver et intéragir avec l'élément
-        driver.findElement(selectProductSelector).click();
+        //driver.findElement(selectProductSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
