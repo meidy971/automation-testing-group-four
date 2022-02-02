@@ -13,12 +13,13 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 public class MyAccountPage {
 
     WebDriver driver;
     WebDriver driver1;
-    int timeoutSearch =15;
+    int timeoutSearch = 15;
     By emailAddressLoginSelector = By.id("username");
     By passwordLoginSelector = By.id("password");
     By loginButtonSelector = By.cssSelector("input[value='Login']");
@@ -28,15 +29,16 @@ public class MyAccountPage {
     By messageSelector = By.cssSelector("[aria-live='polite']");
     By noWhereSelector = By.id("woocommerce-register-nonce");
     By lostPasswordSelector = By.cssSelector("a[href*='lost-password']");
-    By getNewYopmailAdressSelector= By.cssSelector("a[href*='email-generator'] > div + div");
-    By mailAdressSelector= By.id("egen");
+    By getNewYopmailAdressSelector = By.cssSelector("a[href*='email-generator'] > div + div");
+    By mailAdressSelector = By.id("egen");
     By accept = By.id("accept");
     By copyMailSelector = By.id("cprnd");
-    public MyAccountPage(WebDriver driver){
+
+    public MyAccountPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setLoginUserNameOrAdress(String emailAddress){
+    public void setLoginUserNameOrAdress(String emailAddress) {
         // Trouver et intéragir avec l'élément
         driver.findElement(emailAddressLoginSelector).sendKeys(emailAddress);
 
@@ -45,7 +47,7 @@ public class MyAccountPage {
         wait.until(ExpectedConditions.elementToBeClickable(emailAddressLoginSelector));
     }
 
-    public void setLoginPassword(String password){
+    public void setLoginPassword(String password) {
         // Trouver et intéragir avec l'élément
         driver.findElement(passwordLoginSelector).sendKeys(password);
         // Attendre que l'action soit fini
@@ -53,7 +55,7 @@ public class MyAccountPage {
         wait.until(ExpectedConditions.elementToBeClickable(passwordLoginSelector));
     }
 
-    public void login(){
+    public void login() {
         // Trouver et intéragir avec l'élément
         driver.findElement(loginButtonSelector).click();
 
@@ -61,7 +63,7 @@ public class MyAccountPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 
-    public void setRegisterEmailAdress(String emailAddress){
+    public void setRegisterEmailAdress(String emailAddress) {
         // Trouver et intéragir avec l'élément
         driver.findElement(emailAddressRegisterSelector).sendKeys(emailAddress);
 
@@ -71,24 +73,29 @@ public class MyAccountPage {
 
     }
 
-    public void setRegisterPassword(String password){
+    public void setRegisterPassword(String password) {
         // Trouver et intéragir avec l'élément
-        driver.findElement(passwordRegisterSelector).sendKeys(password);
+
+            for (int i = 0; i < password.length(); i++){
+                char c = password.charAt(i);
+                String s = new StringBuilder().append(c).toString();
+                driver.findElement(passwordRegisterSelector).sendKeys(s);
+                driver.findElement(passwordLoginSelector).click();
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(messageSelector));
+            }
 
         // Attendre que l'action soit fini
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
-        wait.until(ExpectedConditions.elementToBeClickable(passwordRegisterSelector));
+
 
     }
 
-    public void register(){
+    public void register() {
         // Trouver et intéragir avec l'élément
-        //driver.findElement(noWhereSelector).click();
 
-        //driver.findElement(registerButtonSelector).click();
-        driver.findElement(registerButtonSelector).submit();
+        driver.findElement(registerButtonSelector).click();
 
-        driver.findElement(emailAddressLoginSelector).click();
+
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
@@ -97,23 +104,26 @@ public class MyAccountPage {
 
     }
 
-    public void getLostPassWord(){
+    public void getLostPassWord() {
 
         // Trouver et intéragir avec l'élément
         driver.findElement(lostPasswordSelector).click();
 
     }
 
-    public String getNewEmailAdress(){
-
-    }
-
-    public void setFirstname(){
-
+    public String getNewEmailAdress() {
         DateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = new Date();
-        String mail = "hello" + format.format(date) + "@yahoo.fr";
-        return mail;
-
+        String email = "hello" + format.format(date) + "@yahoo.fr";
+        return email;
+    }
+    public boolean existsElement() {
+        try {
+            driver.findElement(emailAddressLoginSelector);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
 
 }
