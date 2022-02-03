@@ -12,40 +12,37 @@ public class HeadPage {
      By shopPageSelector = By.id("menu-item-40");
      By basketPageSelector = By.id("wpmenucartli");
      By myAccountPageSelector= By.id("menu-item-50");
-    By chekoutselector= new By.ByCssSelector(".checkout-button");
+
     public HeadPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    //Ouvrir la page Shop
     public  void openShopPage (){
-        //
+
         driver.findElement(shopPageSelector).click();
 
-        //
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(shopPageSelector));
     }
+
+    //Ouvrir la page Basket
     public  void openBasketPage (){
-        //
+
         driver.findElement(basketPageSelector).click();
 
-        //
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(basketPageSelector));
     }
+
+    // Ouvrir la page MyAccount
     public  void openMyAccountPage (){
         driver.findElement(myAccountPageSelector).click();
 
-        //
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(myAccountPageSelector));
     }
 
-    public  void checkout (){
-        driver.findElement(chekoutselector).click();
 
-        //
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
-        wait.until(ExpectedConditions.elementToBeClickable(chekoutselector));
-    }
 
 }

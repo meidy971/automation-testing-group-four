@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class LostPasswordPage {
 
@@ -14,24 +15,35 @@ public class LostPasswordPage {
     By lostPasswordEmailSelector = By.id("user_login");
     By resetPasswordButton = By.cssSelector("input[value='Reset Password']");
 
+
+
     public LostPasswordPage(WebDriver driver){
         this.driver = driver;
     }
 
+    // Saisier l'email dans le champ email
     public void SetUsernameOrEmail(String emailAddress){
 
-        // Trouver et intéragir avec l'élément
+
         driver.findElement(lostPasswordEmailSelector).sendKeys(emailAddress);
 
-        // Attendre que l'action soit fini
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(lostPasswordEmailSelector));
     }
-
+    // Cliquer sur le bouton récupérer MDP
     public void resetPassword(){
 
-        // Trouver et intéragir avec l'élément
         driver.findElement(resetPasswordButton).click();
 
+    }
+    // vérifier que le bouton reset password existe
+    public boolean existsElement() {
+        try {
+            driver.findElement(resetPasswordButton);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
     }
 }

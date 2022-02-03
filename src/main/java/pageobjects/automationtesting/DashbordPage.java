@@ -2,12 +2,9 @@ package pageobjects.automationtesting;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.List;
 
 public class DashbordPage {
 
@@ -21,6 +18,8 @@ public class DashbordPage {
     public DashbordPage (WebDriver driver) {
         this.driver = driver;
     }
+
+    // Ouvrir l'historique des commandes
     public  void openOrdesPage (){
 
 
@@ -29,14 +28,16 @@ public class DashbordPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(ordersSelector));
     }
-
-    public  void openAdressPage (){
+// Ouvrir la page Addresses
+    public  void openAddressPage (){
 
         driver.findElement(adressesSelector).click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(adressesSelector));
     }
+
+   // Ourvir la page des informations du compte
     public  void openAccountDetailsPage (){
 
         driver.findElement(accoutDetailSelector).click();
@@ -44,6 +45,9 @@ public class DashbordPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(accoutDetailSelector));
     }
+
+
+    //Se déconnecter
     public  void logout (){
 
         driver.findElement(logoutSelector).click();
