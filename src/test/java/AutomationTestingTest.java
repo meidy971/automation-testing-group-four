@@ -82,7 +82,7 @@ public class AutomationTestingTest {
         //vérifier les informations dans la page récapitulative
 
         // Arrange
-        String emailAddress = "vimmowetroimme-6874@yopmail.com";
+        String emailAddress = "briquennecrougre-1819@yopmail.com";
         String password = "Marasou91?";
         String firstName = "Meidy";
         String lastName = "J-N";

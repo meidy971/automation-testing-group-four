@@ -24,6 +24,7 @@ public class MyAccountPage {
     By lostPasswordSelector = By.cssSelector("a[href*='lost-password']");
     By logoutButtonSelector = By.cssSelector("a[href*='logout']");
     By logoutSelector = new By.ByCssSelector(".woocommerce>nav>ul>li+li+li+li+li+li>a");
+    By registerButtonSelector = By.cssSelector("input[value='Register']");
 
 
     public MyAccountPage(WebDriver driver) {
@@ -80,7 +81,7 @@ public class MyAccountPage {
     public void register() {
 
 
-        driver.findElement(emailAddressLoginSelector).click();
+        driver.findElement(registerButtonSelector).click();
 
         // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
