@@ -1,4 +1,5 @@
 package pageobjects.automationtesting;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HeadPage {
+
      int timeoutSearch = 2;
      WebDriver driver;
      By shopPageSelector = By.id("menu-item-40");
@@ -42,7 +44,5 @@ public class HeadPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(myAccountPageSelector));
     }
-
-
 
 }

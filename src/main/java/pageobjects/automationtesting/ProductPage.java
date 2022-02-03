@@ -20,20 +20,16 @@ public class ProductPage {
 
     public void addToBasket(){
 
-        // Trouver et intéragir avec l'élément
         driver.findElement(addToBasketButtonSelector).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(addToBasketButtonSelector));
     }
 
     public void goToBasketPage(){
 
-        // Trouver et intéragir avec l'élément
         driver.findElement(itemsSelector).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 }

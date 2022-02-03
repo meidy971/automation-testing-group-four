@@ -8,13 +8,13 @@ import java.time.Duration;
 
 public class DashbordPage {
 
-
     int timeoutSearch = 6;
     WebDriver driver;
     By logoutSelector = new By.ByCssSelector(".woocommerce>nav>ul>li+li+li+li+li+li>a");
     By accoutDetailSelector= new By.ByCssSelector(".woocommerce>nav>ul>li+li+li+li+li>a");
     By adressesSelector= new By.ByCssSelector(".woocommerce>nav>ul>li+li+li+li>a");
     By ordersSelector= new By.ByCssSelector(".woocommerce>nav>ul>li+li>a");
+
     public DashbordPage (WebDriver driver) {
         this.driver = driver;
     }
@@ -45,7 +45,6 @@ public class DashbordPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(accoutDetailSelector));
     }
-
 
     //Se déconnecter
     public  void logout (){

@@ -10,12 +10,14 @@ import java.time.Duration;
 public class ShopPage {
 
     WebDriver driver;
-    int timeoutSearch = 5;
+    int timeoutSearch = 10;
     By shopButton = By.id("menu-item-40");
     By selectProductWithPhotoSelector = By.cssSelector(".woocommerce-LoopProduct-link .attachment-shop_catalog");
-    By selectProductWithTitleSelector = By.cssSelector(".woocommerce-LoopProduct-link .attachment-shop_catalog");
-    By selectProductWithPriceSelector = By.cssSelector("");
-
+    By selectProductWithTitleSelector = By.cssSelector("a[href*='android-quick-start'] > h3");
+    By selectProductWithPriceSelector = By.cssSelector("a[href*='android-quick-start'] > .price > ins");
+    By addToBasketAndroidButtonSelector = By.cssSelector(".post-169 a[href*='add-to-cart']");
+    By addToBasketFunctionnalButtonSelector = By.cssSelector(".post-170 a[href*='add-to-cart']");
+    By viewBasketSelector = By.cssSelector(".post-169 a[href*='basket']");
 
     public ShopPage(WebDriver driver){
         this.driver = driver;
@@ -23,74 +25,53 @@ public class ShopPage {
 
     public void openShopPage(){
 
-        // Trouver et intéragir avec l'élément
         driver.findElement(shopButton).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
         wait.until(ExpectedConditions.elementToBeClickable(shopButton));
     }
 
     public void openProductPageWithPhoto(){
 
-        // Trouver et intéragir avec l'élément
         driver.findElement(selectProductWithPhotoSelector).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 
     public void openProductPageWithTitle(){
 
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
+        driver.findElement(selectProductWithTitleSelector).click();
 
-        // Attendre que l'action soit fini
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 
     public void openProductPageWithPrice(){
 
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
+        driver.findElement(selectProductWithPriceSelector).click();
 
-        // Attendre que l'action soit fini
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 
-    public void addToBasketFromShopPage(){
+    public void addToBasketAndroidFromShopPage(){
 
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
+        driver.findElement(addToBasketAndroidButtonSelector).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
+        wait.until(ExpectedConditions.elementToBeClickable(viewBasketSelector));
+
     }
 
-    public void getFinalProductPriceFromShopPage(){
+    public void addToBasketFunctionnalFromShopPage(){
 
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
+        driver.findElement(addToBasketFunctionnalButtonSelector).click();
 
-        // Attendre que l'action soit fini
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
-    }
+        wait.until(ExpectedConditions.elementToBeClickable(viewBasketSelector));
 
-    public void getTitleFromShopPage(){
-
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
-
-        // Attendre que l'action soit fini
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
 
     public void viewBasket(){
 
-        // Trouver et intéragir avec l'élément
-        //driver.findElement(selectProductSelector).click();
+        driver.findElement(viewBasketSelector).click();
 
-        // Attendre que l'action soit fini
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSearch));
     }
+
 }
